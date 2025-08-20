@@ -24,13 +24,14 @@ defmodule Producer.Publisher do
   def handle_cast({:publish, routing_key, payload}, %{chan: chan} = state) do
     json_payload = Jason.encode!(payload)
 
-    :ok = AMQP.Basic.publish(
-      chan,
-      "stock_updates",
-      routing_key,
-      json_payload,
-      persistent: true
-    )
+    :ok =
+      AMQP.Basic.publish(
+        chan,
+        "stock_updates",
+        routing_key,
+        json_payload,
+        persistent: true
+      )
 
     {:noreply, state}
   end
@@ -58,12 +59,13 @@ defmodule Producer.Publisher do
         {:ok, chan} = AMQP.Channel.open(conn)
         AMQP.Confirm.select(chan)
 
-        :ok = AMQP.Exchange.declare(
-          chan,
-          "stock_updates",
-          :topic,
-          durable: true
-        )
+        :ok =
+          AMQP.Exchange.declare(
+            chan,
+            "stock_updates",
+            :topic,
+            durable: true
+          )
 
         %{conn: conn, chan: chan}
 
