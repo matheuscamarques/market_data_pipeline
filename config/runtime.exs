@@ -16,6 +16,21 @@ import Config
 #
 # Alternatively, you can use `mix phx.gen.release` to generate a `bin/server`
 # script that automatically sets the env var above.
+
+import Dotenvy
+
+env_dir_prefix = System.get_env("RELEASE_ROOT") || Path.expand("./envs")
+
+source!([
+  Path.absname(".env", env_dir_prefix),
+  Path.absname(".#{config_env()}.env", env_dir_prefix),
+  Path.absname(".#{config_env()}.overrides.env", env_dir_prefix),
+  System.get_env()
+])
+
+config :producer, Producer.Publisher,
+  rabbitmq_url: System.get_env("RABBITMQ_URL") || env!("RABBITMQ_URL")
+
 if System.get_env("PHX_SERVER") do
   config :phoenix_web, PhoenixWebWeb.Endpoint, server: true
 end
