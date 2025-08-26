@@ -200,7 +200,7 @@ defmodule PhoenixWebWeb.StockTickerLive do
     <div class="min-h-screen bg-gray-100">
       <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold text-center mb-8">Live Stock Ticker</h1>
-
+        
     <!-- Formulário de adição de símbolos -->
         <div class="bg-white rounded-lg shadow p-6 mb-6">
           <h2 class="text-xl font-semibold mb-4">Manage Stocks</h2>
@@ -219,7 +219,7 @@ defmodule PhoenixWebWeb.StockTickerLive do
             </button>
           </form>
         </div>
-
+        
     <!-- Grid com todos os símbolos monitorados -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
           <%= for symbol <- @subscribed_symbols do %>
@@ -261,7 +261,7 @@ defmodule PhoenixWebWeb.StockTickerLive do
             <% end %>
           <% end %>
         </div>
-
+        
     <!-- Detalhes do símbolo ativo -->
         <%= if active_data = @symbols_data[@active_symbol] do %>
           <div class="bg-white rounded-lg shadow p-6">
@@ -281,7 +281,7 @@ defmodule PhoenixWebWeb.StockTickerLive do
             <div class="text-4xl font-bold text-center mb-8">
               {active_data.value}
             </div>
-
+            
     <!-- Gráfico detalhado -->
             <div class="mt-6 h-96">
               <canvas
@@ -292,7 +292,7 @@ defmodule PhoenixWebWeb.StockTickerLive do
               >
               </canvas>
             </div>
-
+            
     <!-- Histórico recente -->
             <div class="mt-6">
               <h3 class="text-lg font-semibold mb-3">Recent History</h3>

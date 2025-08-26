@@ -21,13 +21,13 @@ import Dotenvy
 
 # env_dir_prefix = System.get_env("RELEASE_ROOT") || Path.expand("./envs")
 apps_dir_prefix = System.get_env("RELEASE_ROOT") || Path.expand("../../envs")
+
 source!([
   Path.absname(".env", apps_dir_prefix),
   Path.absname(".#{config_env()}.env", apps_dir_prefix),
   Path.absname(".#{config_env()}.overrides.env", apps_dir_prefix),
   System.get_env()
 ])
-
 
 config :producer, Producer.Publisher,
   rabbitmq_url: System.get_env("RABBITMQ_URL") || env!("RABBITMQ_URL")
