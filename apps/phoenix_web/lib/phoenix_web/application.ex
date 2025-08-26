@@ -14,7 +14,8 @@ defmodule PhoenixWeb.Application do
       # Start a worker by calling: PhoenixWeb.Worker.start_link(arg)
       # {PhoenixWeb.Worker, arg},
       # Start to serve requests, typically the last entry
-      PhoenixWebWeb.Endpoint
+      PhoenixWebWeb.Endpoint,
+      PhoenixWeb.RabbitMQForwarder
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

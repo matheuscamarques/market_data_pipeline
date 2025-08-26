@@ -17,7 +17,9 @@ defmodule PhoenixWebWeb.Router do
   scope "/", PhoenixWebWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
+
+    live "/", StockTickerLive, :index
   end
 
   # Other scopes may use custom stacks.
