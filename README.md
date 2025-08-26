@@ -1,4 +1,6 @@
 # Live Data Feed System: Real-Time Stock Price Stream
+UI/UX
+<img width="699" height="556" alt="image" src="https://github.com/user-attachments/assets/a9fbbe0b-9377-47fc-8b1f-3393801e4ef0" />
 
 Simplfy Design
 <img width="1023" height="479" alt="image" src="https://github.com/user-attachments/assets/9baebaf1-b94a-43a4-a14a-bfb0b19cc5f3" />
