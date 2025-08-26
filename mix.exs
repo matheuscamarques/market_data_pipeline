@@ -16,6 +16,6 @@ defmodule MarketDataPipeline.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    [{:dotenvy, "~> 1.1.0"}]
+    []
   end
 end
